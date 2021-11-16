@@ -38,17 +38,32 @@
           rgb(110, 82, 66) 63%,
           rgb(100, 76, 56) 100%
         );
-        border-top: 8px solid rgba(116, 91, 65, 1);
-        border-right: 8px solid rgba(99, 73, 43, 1);
-        border-bottom: 8px solid rgba(116, 91, 65, 1);
-        border-left: 8px solid rgba(99, 73, 43, 1);
+        border-top: 12px solid rgb(110, 82, 66);
+        border-right: 12px solid rgba(116, 91, 65, 1);
+        border-bottom: 12px solid rgb(110, 82, 66);
+        border-left: 12px solid rgba(116, 91, 65, 1);
         border-radius: 50%;
         width: 90vw;
         max-width: 240px;
         height: 90vw;
         max-height: 240px;
-        box-shadow: 0 0 10px #503f33 inset;
+        box-shadow: 0 0 10px rgb(93, 65, 49) inset;
         animation: spin 3s linear infinite;
+      }
+      #loader:before, #loader:after {
+        display: block;
+        content: '';
+        position: absolute;
+        border-radius: 100%;
+        border: 4px solid rgb(110, 82, 66);
+      }
+      #loader:before {
+        width: 80%;
+        height: 80%;
+      }
+      #loader:after {
+        width: 70%;
+        height: 70%;
       }
       #loaderContainer.hide {
         transform: translateY(-120vh);
@@ -61,27 +76,9 @@
           transform: rotate(360deg);
         }
       }
-      .top,
-      .bottom {
-        color: #534239;
-        font-weight: bold;
-        line-height: 1;
-        margin-top: 0;
-        margin-bottom: 0;
-        width: auto;
-        height: auto;
-        text-transform: uppercase;
-      }
       .subtitle {
         font-size: 1.6rem;
         margin-top: 2rem;
-      }
-      .top {
-        padding-top: 5px;
-        font-size: calc(220px / 6);
-      }
-      .bottom {
-        font-size: calc(220px / 4);
       }
     </style>
   </head>
@@ -89,8 +86,6 @@
   <body>
     <div id="loaderContainer">
       <div id="loader">
-        <p class="top">Madame</p>
-        <p class="bottom">Rosa</p>
       </div>
       <p class="subtitle">Loading...</p>
     </div>

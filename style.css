@@ -298,6 +298,9 @@ body {
 
 /* Responsive */
 @media screen and (min-width: 660px) {
+  body {
+    height: 100%;
+  }
   .carousel {
     height: 700px;
   }
