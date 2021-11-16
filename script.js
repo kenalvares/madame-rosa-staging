@@ -13,7 +13,7 @@ let goForward = () => {
     consent.classList.add("hide");
     modal.remove();
     overlay.remove();
-  }, 700);
+  }, 500);
 };
 
 let goBack = () => {
