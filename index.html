@@ -1,422 +1,128 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Madame Rosa | Coming Soon</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/f5e8a860a9.js" crossorigin="anonymous"></script>
-    <style>
-      @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html,
-      body {
-        overflow: hidden;
-      }
-
-      body {
-        background: #f6f5f7;
-        background-image: url("https://i.imgur.com/S4NxvNh.jpeg");
-        background-size: cover;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        font-family: "Montserrat", sans-serif;
-        height: 100vh;
-        padding: 0;
-        margin: 0;
-      }
-
-      h1 {
-        font-weight: bold;
-        margin: 0;
-      }
-
-      h2 {
-        text-align: center;
-      }
-
-      p {
-        font-size: 14px;
-        font-weight: 100;
-        line-height: 20px;
-        letter-spacing: 0.5px;
-        margin: 20px 0 30px;
-      }
-
-      span {
-        font-size: 12px;
-      }
-
-      a {
-        color: #333;
-        font-size: 14px;
-        text-decoration: none;
-        margin: 15px 0;
-      }
-
-      button {
-        border-radius: 20px;
-        border: 1px solid #ff4b2b;
-        background-color: #ff4b2b;
-        color: #ffffff;
-        font-size: 12px;
-        font-weight: bold;
-        padding: 12px 45px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        transition: transform 80ms ease-in;
-      }
-
-      button:active {
-        transform: scale(0.95);
-      }
-
-      button:focus {
-        outline: none;
-      }
-
-      button.ghost {
-        background-color: transparent;
-        border-color: #ffffff;
-      }
-
-      form {
-        background-color: #ffffff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        padding: 0 50px;
-        height: 100%;
-        text-align: center;
-      }
-
-      input {
-        background-color: #eee;
-        border: none;
-        padding: 12px 15px;
-        margin: 8px 0;
-        width: 100%;
-      }
-
-      .container {
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-          0 10px 10px rgba(0, 0, 0, 0.22);
-        position: relative;
-        overflow: hidden;
-        width: 80%;
-        max-width: 960px;
-        min-height: 600px;
-        opacity: 0;
-      }
-
-      .container.show {
-        opacity: 1;
-      }
-
-      .form-container {
-        position: absolute;
-        top: 0;
-        height: 100%;
-        transition: all 0.6s ease-in-out;
-      }
-
-      .sign-in-container {
-        left: 0;
-        width: 50%;
-        z-index: 2;
-      }
-
-      .sign-in-container {
-        transform: translateX(100%);
-      }
-
-      .sign-up-container {
-        left: 0;
-        width: 50%;
-        opacity: 0;
-        z-index: 1;
-      }
-
-      .sign-up-container {
-        transform: translateX(100%);
-        opacity: 1;
-        z-index: 5;
-        animation: show 0.6s;
-      }
-
-      @keyframes show {
-        0%,
-        49.99% {
-          opacity: 0;
-          z-index: 1;
-        }
-
-        50%,
-        100% {
-          opacity: 1;
-          z-index: 5;
-        }
-      }
-
-      .overlay-container {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 50%;
-        height: 100%;
-        overflow: hidden;
-        transition: transform 0.6s ease-in-out;
-        z-index: 100;
-      }
-
-      .overlay-container {
-        transform: translateX(-100%);
-      }
-
-      .overlay {
-        background: #fff;
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: 0 0;
-        color: #ffffff;
-        position: relative;
-        left: -100%;
-        height: 100%;
-        width: 200%;
-        transform: translateX(0);
-        transition: transform 0.6s ease-in-out;
-      }
-
-      .overlay {
-        transform: translateX(50%);
-      }
-
-      .overlay-panel {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        padding: 0 40px;
-        text-align: center;
-        top: 0;
-        height: 100%;
-        width: 50%;
-        transform: translateX(0);
-        transition: transform 0.6s ease-in-out;
-      }
-
-      .overlay-left {
-        transform: translateX(-20%);
-      }
-
-      .overlay-left {
-        transform: translateX(0);
-      }
-
-      .overlay-right {
-        right: 0;
-        transform: translateX(0);
-      }
-
-      .overlay-right {
-        transform: translateX(20%);
-      }
-
-      .social-container {
-        margin: 20px 0;
-      }
-
-      .social-container a {
-        border: 1px solid #dddddd;
-        border-radius: 50%;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 5px;
-        height: 40px;
-        width: 40px;
-      }
-
-      #mrLogo {
-        width: 50%;
-        height: auto;
-      }
-
-      #consent {
-        transition: opacity 0.3s ease-out;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        width: 90%;
-        max-width: 960px;
-        height: 420px;
-        background-color: #101010;
-        border-radius: 16px;
-        z-index: 9999;
-        color: #fff;
-      }
-
-      #consent p {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-        max-width: 90%;
-        text-align: center;
-      }
-
-      #consent:after {
-        transition: opacity 0.3s ease-out;
-        width: 100vw;
-        height: 100vh;
-        display: block;
-        content: "";
-        position: absolute;
-        background: rgba(0, 0, 0, 0.6);
-        z-index: -1;
-      }
-      button.yes {
-        margin-right: 1rem;
-      }
-
-      button.yes,
-      button.no {
-        transition: 0.3s ease-out;
-        margin-bottom: 1rem;
-      }
-
-      button.yes:hover {
-        color: lightgreen;
-        border-color: lightgreen;
-        cursor: pointer;
-      }
-
-      button.no:hover {
-        color: #ff4b2b;
-        background-color: transparent;
-        cursor: pointer;
-      }
-
-      #consent.hide {
-        opacity: 0;
-      }
-      #consent.hide:after {
-        opacity: 0;
-      }
-
-      @media only screen and (max-width: 720px) {
-        .overlay-container {
-          z-index: 0;
-          transform: translatex(-50%);
-          width: 100%;
-        }
-
-        .form-container {
-          transform: translatex(0);
-          width: 100%;
-        }
-
-        form {
-          background: rgba(0, 0, 0, 0.8);
-          color: #fff;
-        }
-
-        form i {
-          color: #fff;
-        }
-
-        #consent p {
-          flex-direction: column;
-        }
-
-        button.yes {
-          margin-right: 0;
-        }
-      }
-    </style>
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/f5e8a860a9.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
+
   <body>
-    <div class="container" id="container">
-      <div class="form-container sign-up-container">
-        <form action="#">
-          <img id="mrLogo" src="https://i.imgur.com/Jnq5zPd.png" />
-          <h1>Coming Soon!</h1>
-          <div class="social-container">
-            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social"><i class="fab fa-twitter"></i></a>
-          </div>
-          <span>or join our mailing list</span>
-          <input type="text" placeholder="Full Name" />
-          <input type="email" placeholder="Email" />
-          <button>Join</button>
-        </form>
-      </div>
-      <div class="overlay-container">
-        <div class="overlay">
-          <div class="overlay-panel overlay-left" id="bgCover"></div>
-        </div>
-      </div>
-    </div>
-
     <div id="consent">
-      <h2>Entry</h2>
-      <p>
-        Please confirm that you are above legal drinking age in your region.
-      </p>
-      <p>
-        <button class="ghost yes" onclick="allowEntry()">Yes, Let Me In!</button
-        ><button class="no" onclick="denyEntry()">No, Take Me Back!</button>
-      </p>
+      <div id="overlay"></div>
+      <div id="modal">
+        <img src="img/logo.png" />
+        <h2>Are you of legal drinking age in your region?</h2>
+        <p>
+          <button id="grantEntry">Yes, Let Me In</button>
+          <button id="denyEntry">No, Take Me Back</button>
+        </p>
+      </div>
     </div>
-    <script>
-      var currentBackground = 0;
-      var backgrounds = [];
-      backgrounds[0] = "https://i.imgur.com/3URhFTO.png";
-      backgrounds[1] = "https://i.imgur.com/qbhuPXU.png";
-      backgrounds[2] = "https://i.imgur.com/XB4eeBw.png";
 
-      function changeBackground() {
-        currentBackground++;
-        if (currentBackground > 2) {
-          currentBackground = 0;
-        }
+    <div id="card">
+      <div class="carousel">
 
-        $("#bgCover").fadeOut(300, function () {
-          $("#bgCover").css({
-            "background-image": "url('" + backgrounds[currentBackground] + "')",
-            "background-size": "cover",
-            "background-repeat": "no-repeat",
-            "background-position": "center center",
-          });
-          $("#bgCover").fadeIn(300);
-        });
-        setTimeout(changeBackground, 3000);
-      }
+        <input type="checkbox" class="faux-ui-facia" />
+        <div class="slide">
+          <img src="img/1.png" />
+        </div>
 
-      $(document).ready(function () {
-        changeBackground();
-      });
+        <input type="checkbox" class="faux-ui-facia" />
+        <div class="slide">
+          <img src="img/2.png" />
+        </div>
 
-      function allowEntry() {
-        document.getElementById("container").classList.add("show");
-        document.getElementById("consent").classList.add("hide");
-        document.getElementById("consent").remove();
-      }
+        <input type="checkbox" class="faux-ui-facia" />
+        <div class="slide">
+          <img src="img/3.png" />
+        </div>
 
-      function denyEntry() {
-        window.history.go(-1);
-        console.log("went back");
-      }
-    </script>
+        <input type="checkbox" class="faux-ui-facia" />
+        <div class="slide">
+          <img src="img/4.png" />
+        </div>
+
+        <input type="checkbox" class="faux-ui-facia" />
+        <div class="slide">
+          <img src="img/5.png" />
+        </div>
+
+        <input type="checkbox" class="faux-ui-facia" />
+        <div class="slide">
+          <img src="img/6.png" />
+        </div>
+
+        <input type="checkbox" class="faux-ui-facia" />
+        <div class="slide">
+          <img src="img/7.png" />
+        </div>
+
+        <input type="checkbox" class="faux-ui-facia" />
+        <div class="slide">
+          <img src="img/8.png" />
+        </div>
+
+        <input type="checkbox" class="faux-ui-facia" />
+        <div class="slide">
+          <img src="img/9.png" />
+        </div>
+
+        <input type="checkbox" class="faux-ui-facia" />
+        <div class="slide">
+          <img src="img/10.png" />
+        </div>
+
+        <input type="checkbox" class="faux-ui-facia" />
+        <div class="slide">
+          <img src="img/11.png" />
+        </div>
+
+        <input type="checkbox" class="faux-ui-facia" />
+        <div class="slide">
+          <img src="img/12.png" />
+        </div>
+
+        <input type="checkbox" class="faux-ui-facia" />
+        <div class="slide">
+          <img src="img/13.png" />
+        </div>
+
+        <input type="checkbox" class="faux-ui-facia" />
+        <div class="slide">
+          <img src="img/14.png" />
+        </div>
+
+        <input type="checkbox" class="faux-ui-facia" />
+        <div class="slide">
+          <img src="img/15.png" />
+        </div>
+
+        <input type="checkbox" class="faux-ui-facia" />
+        <div class="slide">
+          <img src="img/16.png" />
+        </div>
+
+        <input type="checkbox" class="faux-ui-facia" />
+        <div class="slide">
+          <img src="img/17.png" />
+        </div>
+
+      </div>
+      <h2>Coming Soon</h2>
+      <p>MadameRosa.com is under construction! Lorem ipsum dolor sit amet.</p>
+      <div class="social-container">
+        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>
