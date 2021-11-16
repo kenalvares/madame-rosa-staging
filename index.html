@@ -11,9 +11,51 @@
       src="https://kit.fontawesome.com/f5e8a860a9.js"
       crossorigin="anonymous"
     ></script>
+    <style>
+      #loaderContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: absolute;
+        width: 100vw;
+        height: 105vh;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        background-color: #263238;
+        z-index: 9999;
+        transition: 0.7s ease-out;
+      }
+      #loader {
+        border-top: 16px solid #90a4ae;
+        border-right: 16px solid #78909c;
+        border-bottom: 16px solid #607d8b;
+        border-left: 16px solid #546e7a;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+      }
+      #loaderContainer.hide {
+        transform: translateY(-120vh);
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
 
   <body>
+    <div id="loaderContainer">
+      <div id="loader"></div>
+    </div>
+
     <div id="consent">
       <div id="overlay"></div>
       <div id="modal">
@@ -28,7 +70,6 @@
 
     <div id="card">
       <div class="carousel">
-
         <input type="checkbox" class="faux-ui-facia" />
         <div class="slide">
           <img src="img/1.png" />
@@ -113,7 +154,6 @@
         <div class="slide">
           <img src="img/17.png" />
         </div>
-
       </div>
       <h2>Coming Soon</h2>
       <p>MadameRosa.com is under construction! Lorem ipsum dolor sit amet.</p>
@@ -124,5 +164,10 @@
       </div>
     </div>
     <script src="script.js"></script>
+    <script>
+      window.onload = function (e) {
+        document.getElementById("loaderContainer").classList.add("hide");
+      };
+    </script>
   </body>
 </html>
