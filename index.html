@@ -23,19 +23,36 @@
         top: 0;
         left: 0;
         overflow: hidden;
-        background-color: #263238;
+        background-color: rgb(200, 186, 179);
         z-index: 9999;
         transition: 0.3s ease-out;
       }
       #loader {
-        border-top: 16px solid #90a4ae;
-        border-right: 16px solid #78909c;
-        border-bottom: 16px solid #607d8b;
-        border-left: 16px solid #546e7a;
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: rgb(116, 91, 65);
+        background: radial-gradient(
+          circle,
+          rgba(116, 91, 65, 1) 0%,
+          rgb(110, 82, 66) 6%,
+          rgba(116, 91, 65, 1) 35%,
+          rgb(110, 82, 66) 63%,
+          rgb(100, 76, 56) 100%
+        );
+        border-top: 8px solid rgba(116, 91, 65, 1);
+        border-right: 8px solid rgba(99, 73, 43, 1);
+        border-bottom: 8px solid rgba(116, 91, 65, 1);
+        border-left: 8px solid rgba(99, 73, 43, 1);
         border-radius: 50%;
-        width: 120px;
-        height: 120px;
-        animation: spin 2s linear infinite;
+        width: 90vw;
+        max-width: 240px;
+        height: 90vw;
+        max-height: 240px;
+        box-shadow: 0 0 10px #503f33 inset;
+        animation: spin 3s linear infinite;
       }
       #loaderContainer.hide {
         transform: translateY(-120vh);
@@ -48,12 +65,33 @@
           transform: rotate(360deg);
         }
       }
+      .top,
+      .bottom {
+        color: #534239;
+        font-weight: bold;
+        line-height: 1;
+        margin-top: 0;
+        margin-bottom: 0;
+        width: auto;
+        height: auto;
+        text-transform: uppercase;
+      }
+      .top {
+        padding-top: 5px;
+        font-size: calc(220px / 6);
+      }
+      .bottom {
+        font-size: calc(220px / 4);
+      }
     </style>
   </head>
 
   <body>
     <div id="loaderContainer">
-      <div id="loader"></div>
+      <div id="loader">
+        <p class="top">Madame</p>
+        <p class="bottom">Rosa</p>
+      </div>
     </div>
 
     <div id="consent">
