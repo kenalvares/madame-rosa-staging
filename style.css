@@ -172,18 +172,18 @@ body {
 }
 
 #card h2 {
-  font-family: "Helvetica";
+  font-family: "Hugolers Stylish Modern", serif;
   text-shadow: none;
   font-size: 2rem;
   margin-left: 5%;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 #card p {
   margin-left: 5%;
   width: 90%;
   margin-top: 0;
-  font-family: "Helvetica";
+  font-family: "Helvetica", sans-serif;
   font-size: 1rem;
   line-height: 1.6rem;
 }
