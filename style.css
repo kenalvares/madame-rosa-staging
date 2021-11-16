@@ -28,6 +28,8 @@ body {
   background-position: center center;
   padding-top: 0;
   margin-top: 0;
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 @font-face {
