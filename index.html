@@ -7,10 +7,6 @@
     <title>Madame Rosa | Coming Soon</title>
     <link rel="shortcut icon" href="./img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script
-      src="https://kit.fontawesome.com/f5e8a860a9.js"
-      crossorigin="anonymous"
-    ></script>
     <style>
       #loaderContainer {
         display: flex;
@@ -76,6 +72,10 @@
         height: auto;
         text-transform: uppercase;
       }
+      .subtitle {
+        font-size: 1.6rem;
+        margin-top: 2rem;
+      }
       .top {
         padding-top: 5px;
         font-size: calc(220px / 6);
@@ -92,7 +92,7 @@
         <p class="top">Madame</p>
         <p class="bottom">Rosa</p>
       </div>
-      <p>Loading...</p>
+      <p class="subtitle">Loading...</p>
     </div>
 
     <div id="consent">
@@ -204,9 +204,13 @@
     </div>
     <script src="script.js"></script>
     <script>
-      window.onload = function (e) {
+      window.addEventListener("load", function () {
         document.getElementById("loaderContainer").classList.add("hide");
-      };
+      });
     </script>
+    <script
+      src="https://kit.fontawesome.com/f5e8a860a9.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

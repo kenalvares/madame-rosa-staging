@@ -29,6 +29,7 @@ body {
   background-repeat: no-repeat;
   padding-top: 0;
   margin-top: 0;
+  height: 100vh;
   overflow-y: hidden;
 }
 
@@ -69,7 +70,7 @@ body {
   background-color: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(10px);
   z-index: 0;
-  transition: .3s ease-out;
+  transition: 0.3s ease-out;
 }
 
 #overlay.hide {
