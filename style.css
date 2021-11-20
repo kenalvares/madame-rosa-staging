@@ -22,6 +22,15 @@ body {
   box-sizing: border-box;
 }
 
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
 body {
   background-image: url("img/saligao house.jpg");
   background-size: cover;
@@ -29,8 +38,13 @@ body {
   background-repeat: no-repeat;
   padding-top: 0;
   margin-top: 0;
-  height: 100vh;
+  height: 100%;
   overflow-y: hidden;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @font-face {
@@ -192,7 +206,7 @@ body {
 .carousel {
   position: relative;
   width: 100%;
-  height: 105vw;
+  height: 32vh;
   overflow: hidden;
   margin: 0 auto;
 }
@@ -206,11 +220,15 @@ body {
   position: absolute;
   z-index: 1;
   width: 100%;
-  height: 400px;
-  background-color: #eee;
+  height: 100%;
   text-align: center;
   transition: opacity 0.4s;
   opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color:rgb(189, 255, 200);
 }
 .faux-ui-facia {
   top: 0;
@@ -256,8 +274,6 @@ body {
 .slide img {
   object-fit: cover;
   object-position: center center;
-  display: block;
-  position: relative;
   width: 100%;
   height: auto;
 }
@@ -296,15 +312,9 @@ body {
   color: inherit;
 }
 
-/* Responsive */
+
 @media screen and (min-width: 660px) {
-  body {
-    height: 100%;
-  }
   .carousel {
-    height: 700px;
-  }
-  .slide img {
-    transform: translatey(-20px);
+    height: 420px;
   }
 }

@@ -27,7 +27,7 @@ denyEntryBtn.addEventListener("click", goBack);
 let runSlides = () => {
   console.log("     Slide: " + slide);
   inputs[slide].click();
-  if (slide === 16) {
+  if (slide === 5) {
     slide = 0;
   } else {
     slide++;
